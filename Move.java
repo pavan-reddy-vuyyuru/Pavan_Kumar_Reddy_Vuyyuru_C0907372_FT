@@ -26,9 +26,22 @@ class Box{
 		contents.add(item);
 		//System.out.println("Item added....");
 	}
-	public int find(String item){
+	public int find(String itemName){
 		//System.out.println("Dummy return from here");
-		return 5;
+		for (Object item : contents) {
+			if (item instanceof SingleObject) {
+				if (((SingleObject) item).getName().equals(itemName)) {
+					return boxNumber;
+				}
+			} else if (item instanceof Box) {
+				int result = ((Box) item).find(itemName);
+				if (result != -1) {
+					return result;
+				}
+			}
+		}
+		return -1;
+		//return 5;
 
 	}
 
@@ -120,7 +133,7 @@ class Move {
 		move.print();
 
 		// We print the number of the outermost cardboard containing the item "scarf"
-		System.out.println("The sarf is in the cardboard number " + move.find("scarf"));
+		System.out.println("The scarf is in the cardboard number " + move.find("scarf"));
 	}
 
 
