@@ -1,8 +1,38 @@
+import java.util.ArrayList;
+
+class SingleObject {
+	private String name;
+
+	public SingleObject(String name) {
+		this.name = name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+}
+class Box{
+	public ArrayList<Object> contents;
+	public int boxNumber;
+	public Box(int noOfItems, int boxNumber){
+		this.contents = new ArrayList<>(noOfItems);
+		this.boxNumber = boxNumber;
+	}
+	public void addItem(Object item) {
+		contents.add(item);
+	}
+}
 class Move {
 	/* *************************************** */
 	// write your code here
 
 	/* *************************************** */
+
+
 
 	public static void main(String[] args) {
 		// We create a move that will hold 2 main boxes
