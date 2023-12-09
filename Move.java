@@ -16,7 +16,7 @@ class SingleObject {
 	}
 }
 class Box{
-	public ArrayList<Object> contents;
+	ArrayList<Object> contents;
 	public int boxNumber;
 	public Box(int noOfItems, int boxNumber){
 		this.contents = new ArrayList<>(noOfItems);
@@ -24,16 +24,19 @@ class Box{
 	}
 	public void addItem(Object item) {
 		contents.add(item);
+		//System.out.println("Item added....");
 	}
 	public int find(String item){
-		System.out.println("Dummy return from here");
+		//System.out.println("Dummy return from here");
 		return 5;
 
 	}
 
 	public void displayContents() {
-		System.out.println("Lets check control coming here");
+		//System.out.println("Lets check control coming here");
+		
 	}
+
 }
 class Move {
 	/* *************************************** */
