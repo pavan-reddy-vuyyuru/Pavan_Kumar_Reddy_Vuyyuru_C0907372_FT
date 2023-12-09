@@ -34,14 +34,20 @@ class Box{
 
 	public void displayContents() {
 		//System.out.println("Lets check control coming here");
-		
+		for (Object item : contents) {
+			if (item instanceof SingleObject) {
+				System.out.println(((SingleObject) item).getName() + " ");
+			} else if (item instanceof Box) {
+				((Box) item).displayContents();
+			}
+		}
 	}
 
 }
 class Move {
 	/* *************************************** */
 	// write your code here
-	private ArrayList<Box> boxes;
+	private final ArrayList<Box> boxes;
 	public Move(int numBoxes) {
 		boxes = new ArrayList<>(numBoxes);
 	}
@@ -53,7 +59,6 @@ class Move {
 		for (Box box : boxes) {
 			box.displayContents();
 		}
-		System.out.println();
 	}
 	public int find(String item) {
 		for (Box box : boxes) {
