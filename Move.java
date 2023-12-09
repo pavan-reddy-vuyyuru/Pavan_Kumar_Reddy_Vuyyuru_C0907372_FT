@@ -25,11 +25,42 @@ class Box{
 	public void addItem(Object item) {
 		contents.add(item);
 	}
+	public int find(String item){
+		System.out.println("Dummy return from here");
+		return 5;
+
+	}
+
+	public void displayContents() {
+		System.out.println("Lets check control coming here");
+	}
 }
 class Move {
 	/* *************************************** */
 	// write your code here
-
+	private ArrayList<Box> boxes;
+	public Move(int numBoxes) {
+		boxes = new ArrayList<>(numBoxes);
+	}
+	private void addBox(Box box) {
+		boxes.add(box);
+	}
+	public void print() {
+		System.out.println("The objects of my move are:");
+		for (Box box : boxes) {
+			box.displayContents();
+		}
+		System.out.println();
+	}
+	public int find(String item) {
+		for (Box box : boxes) {
+			int result = box.find(item);
+			if (result != -1) {
+				return result;
+			}
+		}
+		return -1;
+	}
 	/* *************************************** */
 
 
@@ -83,4 +114,8 @@ class Move {
 		// We print the number of the outermost cardboard containing the item "scarf"
 		System.out.println("The sarf is in the cardboard number " + move.find("scarf"));
 	}
+
+
+
+
 }
